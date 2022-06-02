@@ -1,0 +1,33 @@
+<h1>User Details</h1>
+<form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+  <label>Enter your name:</label>
+  <input type="text" ngModel name="name">
+  <br><br>
+  <label>Email:</label>
+  <input type="email" ngModel  name="email">
+  <br><br>
+  <label>Phone number:</label>
+  <input type="tel" ngModel  name="phoneno">
+  <br><br>
+  <button>Add New User</button>
+</form>
+<h1 class="title">List of API Data</h1>
+<table border="2">
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Phone</td>
+    <td>Action</td>
+  </tr>
+  <tr *ngFor="let item of users">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.phoneno}}</td>
+    
+    <td><button>Edit</button><button>Delete</button></td>
+    
+ </tr>
+</table>
+<router-outlet></router-outlet>
