@@ -26,7 +26,10 @@
     <td>{{item.email}}</td>
     <td>{{item.phoneno}}</td>
     
-    <td><button>Edit</button><button>Delete</button></td>
+    <td>
+      <button >Edit</button>
+      <button (click)="deleteUser(item.id)">Delete</button>
+    </td>
     
  </tr>
 </table>

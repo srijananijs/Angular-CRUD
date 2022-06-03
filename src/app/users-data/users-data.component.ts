@@ -7,20 +7,25 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './users-data.component.html',
   styleUrls: ['./users-data.component.css']
 })
-export class UsersDataComponent{
-  users:any;
-  constructor(private userData:UsersDataService) {
-    this.userData.users().subscribe((data)=>{
-      this.users=data;
+export class UsersDataComponent {
+  users: any = [];
+  constructor(private userData: UsersDataService) {
+    this.userData.users().subscribe((data) => {
+      this.users = data;
     });
   }
-  getUserFormData(data:any){
+  getUserFormData(data: any) {
     console.log(data);
-    this.userData.saveUser(data).subscribe((result)=>{
+    //this.users.push(data + 1, 1)
+    this.userData.saveUser(data).subscribe((result) => {
       console.log(result);
     })
   }
+  deleteUser(item: any) {
+    this.users.splice(item - 1, 1)
+    this.userData.deleteUser(item).subscribe((result) => {
+      console.log("result", result);
+    });
 
-  
-
+  }
 }
