@@ -16,5 +16,8 @@ export class UsersDataService {
   deleteUser(id:any){
     return this.http.delete(`${this.url}/${id}`);
   }
-
+  getCurrentUser(id:any){
+    return this.http.get(`${this.url}/${id}`);
+  }
+  
 }
